@@ -1,0 +1,5 @@
+tomcat	9.0.26
+MySQL	8.0.15
+Maven	3.6.3
+JDK	1.8
+Vue.js	2.9.6
