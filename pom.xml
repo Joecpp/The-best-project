@@ -16,7 +16,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <!--spring版本号-->
-        <spring.version>5.2.6.RELEASE</spring.version>
+        <spring.version>4.3.6.RELEASE</spring.version>
         <!--mybatis版本号-->
         <mybatis.version>3.4.1</mybatis.version>
         <!--mysql版本-->
@@ -26,6 +26,8 @@
         <log4j.version>1.2.12</log4j.version>
         <!--jstl版本号-->
         <jstl.version>1.2</jstl.version>
+        <!--Json支持的版本-->
+        <json.version>2.5.3</json.version>
     </properties>
     <dependencies>
         <!--spring-->
@@ -35,6 +37,17 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -78,8 +91,18 @@
         <!--JSON-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.8.7</version>
+           <version>${json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${json.version}</version>
         </dependency>
 
         <!--mybatis包-->
