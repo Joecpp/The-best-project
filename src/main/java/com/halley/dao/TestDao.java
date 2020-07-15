@@ -1,8 +1,10 @@
 package com.halley.dao;
 
-/**
- * @author Jan
- * @Date 2020/7/14 11:51
- */
-public class TestDao {
+import com.halley.bean.TestBean;
+
+import java.util.List;
+
+public interface TestDao {
+
+    public List<TestBean> findAll();
 }
