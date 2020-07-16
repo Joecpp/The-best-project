@@ -30,5 +30,21 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.2.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.5" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.20" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:druid:1.0.9" level="project" />
   </component>
 </module>
