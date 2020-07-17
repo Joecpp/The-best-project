@@ -17,8 +17,8 @@
 
     <!--配置的视图解析器对象-->
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
+        <property name="prefix" value=""/>
+        <property name="suffix" value=""/>
     </bean>
 
 
@@ -34,7 +34,7 @@
 
     <!-- 接口跨域配置 -->
     <mvc:cors>
-        <mvc:mapping path="/**"
+        <mvc:mapping path="*"
                      allowed-origins="*"
                      allowed-methods="POST, GET, OPTIONS, DELETE, PUT"
                      allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
