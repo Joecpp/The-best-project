@@ -1,27 +1,22 @@
 package com.halley.controller;
 
-import com.halley.bean.User;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import com.halley.bean.Admin;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Jan
  * @Date 2020/7/17 14:05
  */
-@Controller
+@RestController
 public class LoginController {
 
+
+    @RequestMapping(value = "/login")
     @ResponseBody
-    @RequestMapping(value = "/Login")
-    public Model Login(Model model, @RequestBody User user){
+    public Admin Login(@RequestBody Admin user){
 
         System.out.println(user);
-        model.addAttribute("user",user);
-        return model;
+        return user;
     }
 
 }
