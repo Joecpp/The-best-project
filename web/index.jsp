@@ -11,8 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
-  <a href="The_best_project_war_exploded/hello">Hello World</a>
+  <a href="/hello">Hello World</a>
   $END$
-  <a href="The_best_project_war_exploded/json">Json</a>
+  <a href="/json">Json</a>
   </body>
 </html>

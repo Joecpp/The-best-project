@@ -30,6 +30,7 @@ public class SimpleCorsFilter implements Filter {
         res.setHeader("Access-Control-Max-Age", "3600");
         res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept,Authorization,token");
         res.setHeader("Access-Control-Allow-Credentials","true");
+        chain.doFilter(request,response);
 
     }
 

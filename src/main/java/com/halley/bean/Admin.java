@@ -4,9 +4,10 @@ package com.halley.bean;
  * @author Jan
  * @Date 2020/7/17 18:25
  */
-public class User {
+public class Admin {
     private String username;
     private String password;
+    public Integer no;
 
     @Override
     public String toString() {
@@ -30,5 +31,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getNo() {
+        return no;
+    }
+
+    public void setNo(Integer no) {
+        this.no = no;
     }
 }
