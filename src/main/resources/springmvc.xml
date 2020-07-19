@@ -2,26 +2,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--开启注解扫描，只扫描Controller注解-->
     <context:component-scan base-package="com.halley.controller">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-
-
+    <context:component-scan base-package="com.halley.utils"></context:component-scan>
 
     <!--过滤静态资源-->
-<!--    <mvc:resources location="/css" mapping="/css/**"/>-->
-<!--    <mvc:resources location="/images/" mapping="/images/**"/>-->
-<!--    <mvc:resources location="/js/" mapping="/js/**"/>-->
+    <!--    <mvc:resources location="/css" mapping="/css/**"/>-->
+    <!--    <mvc:resources location="/images/" mapping="/images/**"/>-->
+    <!--    <mvc:resources location="/js/" mapping="/js/**"/>-->
     <!--开启SpringMVC注解的支持-->
 
 
@@ -34,6 +31,8 @@
                      allowed-origins="*"
                      allowed-methods="POST, GET, OPTIONS, DELETE, PUT"
                      allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
-                     allow-credentials="true" />
+                     allow-credentials="true"/>
     </mvc:cors>
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 </beans>
