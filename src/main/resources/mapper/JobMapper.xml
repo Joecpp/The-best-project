@@ -4,11 +4,38 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.halley.mapper.JobMapper">
-<select id="getAllJob" resultType="com.halley.bean.Job">
+    <select id="getAllJob" resultType="com.halley.bean.Job">
         select * from job
     </select>
 
-<select id="getByNo" resultType="com.halley.bean.Job">
-        select job_no,job_name,job_info from job where job_no = #{JobNo}
-</select>
+    <select id="getByNo" resultType="com.halley.bean.Job">
+        select * from job where job_no = #{jobNo}
+    </select>
+
+    <select id="getByNameAndNo" resultType="com.halley.bean.Job">
+        select * from job
+        <where>
+            <if test="jobNo!=null">
+                job_no = #{jobNo} and
+            </if>
+            <if test="jobName!=null ">
+                job_name like concat('%',#{jobName},'%')
+            </if>
+
+        </where>
+    </select>
+
+    <insert id="addJob" parameterType="com.halley.bean.Job">
+        insert into job (job_no,job_name,job_info)values
+          (#{job.jobNo},#{job.jobName},#{job.jobInfo})
+    </insert>
+
+    <update id="updateJob" parameterType="com.halley.bean.Job">
+        update job SET job_name=#{job.jobName},job_info=#{job.jobInfo}
+        where job_no = #{job.jobNo}
+    </update>
+
+    <delete id="deleteJob" parameterType="com.halley.bean.Job">
+        delete from job where job_no = #{jobNo}
+    </delete>
 </mapper>

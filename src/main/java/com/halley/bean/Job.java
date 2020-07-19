@@ -1,12 +1,13 @@
 package com.halley.bean;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Jan
  * @Date 2020/7/18 21:52
  */
-@Component
+@Repository
 public class Job {
     private Integer jobNo;
     private String jobName;
@@ -20,6 +21,21 @@ public class Job {
                 ", jobInfo='" + jobInfo + '\'' +
                 '}';
     }
+
+    public Job(Integer jobNo, String jobName, String jobInfo) {
+        this.jobNo = jobNo;
+        this.jobName = jobName;
+        this.jobInfo = jobInfo;
+    }
+
+    public Job() {
+    }
+
+    public Job(String jobName) {
+        this.jobName = jobName;
+    }
+
+
 
     public Integer getJobNo() {
         return jobNo;

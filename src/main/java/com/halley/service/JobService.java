@@ -13,11 +13,12 @@ public class JobService {
     @Autowired
     JobMapper jobMapper;
 
-    public List<Job> getAllJob(){
+    public List<Job> getAllJob() {
 
         return jobMapper.getAllJob();
     }
-    public Job getByNo(Integer JobNo){
+
+    public Job getByNo(Integer JobNo) {
 
         return jobMapper.getByNo(JobNo);
     }
