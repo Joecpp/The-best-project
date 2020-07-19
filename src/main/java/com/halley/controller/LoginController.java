@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Jan
  * @Date 2020/7/17 14:05
@@ -18,16 +21,17 @@ public class LoginController {
 
     @RequestMapping(value = "/login")
     @ResponseBody
-    public Admin Login(@RequestBody Admin user){
+    public Map Login(@RequestBody Admin user){
+        Admin admin = adminService.adminLogin(user);
+        Map map = new HashMap(3);
 
-        System.out.println(user);
-        return user;
+        if(admin!=null){
+            map.put("admin",admin);
+        }else {
+            map.put("msg","账号或密码错误");
+        }
+
+        return map;
     }
 
-    @RequestMapping("/lll")
-    @ResponseBody
-    public Admin Lll(){
-        Admin admin = adminService.adminService();
-        return admin;
-    }
 }

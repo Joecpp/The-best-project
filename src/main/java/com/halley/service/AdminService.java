@@ -13,8 +13,13 @@ import org.springframework.stereotype.Service;
 public class AdminService {
     @Autowired
     AdminMapper adminMapper;
-    public Admin adminService(){
-        Admin admin = adminMapper.getAdminByUsername("admin");
-        return admin;
+    public Admin adminLogin(Admin admin){
+        Admin newAdmin = adminMapper.getAdminByUsername(admin.getUsername());
+        if(newAdmin.getPassword().equals(admin.getPassword())){
+            return admin;
+        }else {
+            return null;
+
+        }
     }
 }
