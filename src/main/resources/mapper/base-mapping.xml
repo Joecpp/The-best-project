@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.halley.mapper.BaseMapper">
+    <select id="getBaseFlagByItemNo" resultType="int">
+        select b.flag from base b, item i where item_no = #{item_no} and i.base_no = b.base_no
+
+
+    </select>
+</mapper>
