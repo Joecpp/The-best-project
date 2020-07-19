@@ -28,6 +28,7 @@
         <jstl.version>1.2</jstl.version>
         <!--Json支持的版本-->
         <json.version>2.5.3</json.version>
+        <pro.outerDirectory>src/main/webapp</pro.outerDirectory>
     </properties>
     <dependencies>
         <!--spring-->
@@ -75,6 +76,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
+
         </dependency>
         <!--spring aspects-->
         <dependency>
@@ -158,5 +160,10 @@
             <version>2.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.2.6.RELEASE</version>
+        </dependency>
     </dependencies>
 </project>
