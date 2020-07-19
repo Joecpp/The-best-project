@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.halley.mapper.JobMapper">
+<select id="getAllJob" resultType="com.halley.bean.Job">
+        select * from job
+    </select>
+
+<select id="getByNo" resultType="com.halley.bean.Job">
+        select job_no,job_name,job_info from job where job_no = #{JobNo}
+</select>
+</mapper>
