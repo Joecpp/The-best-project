@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.halley.mapper.DeptMapper">
+    <select id="getAllDept" resultType="com.halley.bean.Dept">
+        select * from dept
+    </select>
+
+    <select id="getByNo" resultType="com.halley.bean.Dept">
+        select * from dept where dept_no = #{deptNo}
+    </select>
+
+    <select id="getByNameAndNo" resultType="com.halley.bean.Dept">
+        select * from dept
+        <where>
+            <if test="deptNo!=null">
+                dept_no = #{deptNo} and
+            </if>
+            <if test="deptName!=null ">
+                dept_name like concat('%',#{deptName},'%')
+            </if>
+
+        </where>
+    </select>
+
+    <insert id="addDept" parameterType="com.halley.bean.Dept">
+        insert into dept (dept_no,dept_name,dept_info)values
+          (#{dept.deptNo},#{dept.deptName},#{dept.deptInfo})
+    </insert>
+
+    <update id="updateDept" parameterType="com.halley.bean.Dept">
+        update dept SET dept_name=#{dept.deptName},dept_info=#{dept.deptInfo}
+        where dept_no = #{dept.deptNo}
+    </update>
+
+    <delete id="deleteDept" parameterType="com.halley.bean.Dept">
+        delete from dept where dept_no = #{deptNo}
+    </delete>
+</mapper>

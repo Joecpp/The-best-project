@@ -1,13 +1,26 @@
 package com.halley.bean;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 /**
  * @author Jan
  * @Date 2020/7/18 21:20
  */
+@Repository
 public class Dept {
     private Integer deptNo;
     private String deptName;
     private String deptInfo;
+
+    public Dept() {
+    }
+
+    public Dept(Integer deptNo, String deptName, String deptInfo) {
+        this.deptNo = deptNo;
+        this.deptName = deptName;
+        this.deptInfo = deptInfo;
+    }
 
     @Override
     public String toString() {

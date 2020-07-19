@@ -8,6 +8,7 @@
 
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="callSettersOnNulls" value="true"/>
     </settings>
     <mappers>
         <package name="com.halley.mapper"/>

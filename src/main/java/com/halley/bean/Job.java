@@ -1,11 +1,15 @@
 package com.halley.bean;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 /**
  * @author Jan
  * @Date 2020/7/18 21:52
  */
+@Repository
 public class Job {
-    private int jobNo;
+    private Integer jobNo;
     private String jobName;
     private String jobInfo;
 
@@ -18,11 +22,26 @@ public class Job {
                 '}';
     }
 
-    public int getJobNo() {
+    public Job(Integer jobNo, String jobName, String jobInfo) {
+        this.jobNo = jobNo;
+        this.jobName = jobName;
+        this.jobInfo = jobInfo;
+    }
+
+    public Job() {
+    }
+
+    public Job(String jobName) {
+        this.jobName = jobName;
+    }
+
+
+
+    public Integer getJobNo() {
         return jobNo;
     }
 
-    public void setJobNo(int jobNo) {
+    public void setJobNo(Integer jobNo) {
         this.jobNo = jobNo;
     }
 
