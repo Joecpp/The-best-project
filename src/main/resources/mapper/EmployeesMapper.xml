@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.halley.mapper.EmployeesMapper">
+    <select id="getAllEmp" resultType="com.halley.bean.Employees">
+        select * from employees
+    </select>
+
+    <select id="getByDeptNo" resultType="com.halley.bean.Employees">
+        select * from employees where dept_no = #{deptNo}
+    </select>
+
+    <select id="getByEmpNo" resultType="com.halley.bean.Employees">
+        select * from employees where emp_no = #{empNo}
+    </select>
+
+<!--    where标签下and要放前面才能帮忙截取-->
+    <select id="getByThree" resultType="com.halley.bean.Employees">
+        select * from employees
+        <where>
+            <if test="eNo!=null">
+                 emp_no = #{eNo}
+            </if>
+            <if test="eName!=null ">
+                and emp_name like concat('%',#{eName},'%')
+            </if>
+            <if test="dNo!=null ">
+                and dept_no = #{dNo}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateEmp" parameterType="com.halley.bean.Employees">
+        update employees SET emp_name=#{emp.empName},dept_no=#{emp.deptNo},job_no=#{emp.jobNo}
+        where emp_no = #{emp.empNo}
+    </update>
+
+    <insert id="addEmp" parameterType="com.halley.bean.Employees">
+        insert into employees (emp_no,emp_name,dept_no,job_no)values
+          (#{emp.empNo},#{emp.empName},#{emp.deptNo},#{emp.jobNo})
+    </insert>
+
+
+
+    <delete id="deleteEmp" parameterType="com.halley.bean.Employees">
+        delete from employees where emp_no = #{empNo}
+    </delete>
+</mapper>

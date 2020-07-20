@@ -12,11 +12,12 @@
         select * from job where job_no = #{jobNo}
     </select>
 
+    <!--    where标签下and要放前面才能帮忙截取-->
     <select id="getByNameAndNo" resultType="com.halley.bean.Job">
         select * from job
         <where>
             <if test="jobNo!=null">
-                job_no = #{jobNo} and
+                and job_no = #{jobNo}
             </if>
             <if test="jobName!=null ">
                 job_name like concat('%',#{jobName},'%')

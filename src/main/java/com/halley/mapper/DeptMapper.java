@@ -1,12 +1,16 @@
 package com.halley.mapper;
 
 import com.halley.bean.Dept;
-import com.halley.bean.Job;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * @author Joe
+ * @date 2020/7/19 21:04
+ */
 @Component
 public interface DeptMapper {
 
