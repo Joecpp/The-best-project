@@ -20,13 +20,18 @@ public class IntegrateUtil {
 
     public static final ProjectIntegrate integrate(Base base){
         ProjectIntegrate projectIntegrate = new ProjectIntegrate();
-        projectIntegrate.setFluctuat(base.getFluctuat());
+        switch (base.getFluctuat()){
+         case 0 : projectIntegrate.setFluctuat("不影响");break;
+            case 1:projectIntegrate.setFluctuat("增");break;
+            case -1:projectIntegrate.setFluctuat("减");break;
+            default:break;
+        }
         projectIntegrate.setId(base.getBaseNo());
         if (base.getFlag()==1) {
-            projectIntegrate.setItemType(2);
+            projectIntegrate.setItemType("导入项目");
 
         }else {
-            projectIntegrate.setItemType(1);
+            projectIntegrate.setItemType("固定项目");
         }
         projectIntegrate.setItemName(base.getBaseName());
         return projectIntegrate;
@@ -34,8 +39,14 @@ public class IntegrateUtil {
 
     public static final ProjectIntegrate integrate(Item item){
         ProjectIntegrate projectIntegrate = new ProjectIntegrate();
+        switch (item.getFluctuat()){
+            case 0 : projectIntegrate.setFluctuat("不影响");break;
+            case 1:projectIntegrate.setFluctuat("增");break;
+            case -1:projectIntegrate.setFluctuat("减");break;
+            default:break;
+        }
         projectIntegrate.setItemName(item.getItemName());
-        projectIntegrate.setItemType(3);
+        projectIntegrate.setItemType("计算项目");
         projectIntegrate.setId(item.getItemNo());
         projectIntegrate.setItemFormula(item.getOperator()+String.valueOf(item.getSecondOp()));
         return projectIntegrate;

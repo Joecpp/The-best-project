@@ -27,7 +27,7 @@ public class ProjectIntegrate {
     }
 
 
-    private int itemType;
+    private String itemType;
     /**
      * 整合后的公式
      */
@@ -36,7 +36,7 @@ public class ProjectIntegrate {
     /**
      * 增减项
      */
-    private int fluctuat;
+    private String fluctuat;
 
     public Integer getId() {
         return id;
@@ -54,11 +54,11 @@ public class ProjectIntegrate {
         this.itemName = itemName;
     }
 
-    public int getItemType() {
+    public String getItemType() {
         return itemType;
     }
 
-    public void setItemType(int itemType) {
+    public void setItemType(String itemType) {
         this.itemType = itemType;
     }
 
@@ -70,11 +70,11 @@ public class ProjectIntegrate {
         this.itemFormula = itemFormula;
     }
 
-    public int getFluctuat() {
+    public String getFluctuat() {
         return fluctuat;
     }
 
-    public void setFluctuat(int fluctuat) {
+    public void setFluctuat(String fluctuat) {
         this.fluctuat = fluctuat;
     }
 }

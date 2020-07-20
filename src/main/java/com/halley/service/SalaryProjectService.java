@@ -30,14 +30,15 @@ public class SalaryProjectService {
      */
     public List<ProjectIntegrate> getSalaryProjectByCondition(ProjectIntegrate projectIntegrate){
         String itemName = projectIntegrate.getItemName();
-        int itemType = projectIntegrate.getItemType();
+        String itemType = projectIntegrate.getItemType();
         List list = new ArrayList();
-        if(itemName==null && itemType==0){
+
+        if("".equals(itemName) && "".equals(itemType)){
             List<Base> allBase = baseMapper.getAllBase();
             List<Item> allItem = itemMapper.getAllItem();
             list.addAll(IntegrateUtil.integrateForBase(allBase));
             list.addAll(IntegrateUtil.integrateForItem(allItem));
-        }else if (itemName!=null){
+        }else if (!"".equals(itemName)){
             Base baseByProjectName = baseMapper.getBaseByProjectName(itemName);
             if(baseByProjectName==null){
                 Item itemByItemName = itemMapper.getItemByItemName(itemName);
@@ -48,9 +49,9 @@ public class SalaryProjectService {
 
         }else {
             switch (itemType){
-                case 1:list.addAll(IntegrateUtil.integrateForBase(baseMapper.getBaseByFlag(0)));break;
-                case 2:list.addAll(IntegrateUtil.integrateForBase(baseMapper.getBaseByFlag(1)));break;
-                case 3:list.addAll(IntegrateUtil.integrateForItem(itemMapper.getAllItem()));
+                case "固定项目":list.addAll(IntegrateUtil.integrateForBase(baseMapper.getBaseByFlag(0)));break;
+                case "导入项目":list.addAll(IntegrateUtil.integrateForBase(baseMapper.getBaseByFlag(1)));break;
+                case "计算项目":list.addAll(IntegrateUtil.integrateForItem(itemMapper.getAllItem()));
                 default:break;
             }
         }

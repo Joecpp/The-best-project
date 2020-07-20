@@ -24,6 +24,7 @@ public class SalaryProjectController {
     @ResponseBody
     public Response getSalaryProject(@RequestBody ProjectIntegrate projectIntegrate){
         Response response = new Response();
+        System.out.println(projectIntegrate+"------------------");
         List<ProjectIntegrate> salaryProjectByCondition = salaryProjectService.getSalaryProjectByCondition(projectIntegrate);
         response.success(salaryProjectByCondition);
         return response;
