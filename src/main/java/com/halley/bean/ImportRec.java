@@ -1,15 +1,14 @@
 package com.halley.bean;
 
-import java.sql.Date;
 
 /**
  * @author Jan
- * @Date 2020/7/18 21:28
+ * @int 2020/7/18 21:28
  */
 public class ImportRec {
     private Integer importId;
     private Integer empNo;
-    private Date month;
+    private int month;
     private double num;
 
     public Integer getImportId() {
@@ -28,11 +27,11 @@ public class ImportRec {
         this.empNo = empNo;
     }
 
-    public Date getMouth() {
+    public int getMouth() {
         return month;
     }
 
-    public void setMouth(Date month) {
+    public void setMouth(int month) {
         this.month = month;
     }
 

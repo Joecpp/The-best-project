@@ -2,9 +2,12 @@ package com.halley.utils;
 
 import com.halley.bean.Base;
 import com.halley.bean.Item;
-import com.halley.bean.ItemIntegrate;
+import com.halley.bean.ProjectIntegrate;
 import com.halley.mapper.BaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 整合工具
@@ -15,29 +18,42 @@ public class IntegrateUtil {
     @Autowired
     static BaseMapper baseMapper;
 
-    public static final ItemIntegrate integrate(Base base){
-        ItemIntegrate itemIntegrate = new ItemIntegrate();
-        itemIntegrate.setFluctuat(base.getFluctuat());
-        itemIntegrate.setId(base.getBaseNo());
+    public static final ProjectIntegrate integrate(Base base){
+        ProjectIntegrate projectIntegrate = new ProjectIntegrate();
+        projectIntegrate.setFluctuat(base.getFluctuat());
+        projectIntegrate.setId(base.getBaseNo());
         if (base.getFlag()==1) {
-            itemIntegrate.setItemType("导入项目");
+            projectIntegrate.setItemType(2);
 
         }else {
-            itemIntegrate.setItemType("固定项目");
+            projectIntegrate.setItemType(1);
         }
-        itemIntegrate.setItemName(base.getBaseName());
-        return itemIntegrate;
+        projectIntegrate.setItemName(base.getBaseName());
+        return projectIntegrate;
     }
 
-    public static final ItemIntegrate integrate(Item item){
-        ItemIntegrate itemIntegrate = new ItemIntegrate();
-        String name = baseMapper.getBaseNameByItemNo(item.getItemNo());
-        itemIntegrate.setItemName(item.getItemName());
-        itemIntegrate.setBaseName(name);
-        itemIntegrate.setItemType("计算项目");
-        itemIntegrate.setId(item.getItemNo());
-        itemIntegrate.setItemFormula(item.getOperator()+String.valueOf(item.getSecondOp()));
-        return itemIntegrate;
+    public static final ProjectIntegrate integrate(Item item){
+        ProjectIntegrate projectIntegrate = new ProjectIntegrate();
+        projectIntegrate.setItemName(item.getItemName());
+        projectIntegrate.setItemType(3);
+        projectIntegrate.setId(item.getItemNo());
+        projectIntegrate.setItemFormula(item.getOperator()+String.valueOf(item.getSecondOp()));
+        return projectIntegrate;
+    }
 
+    public static final List<ProjectIntegrate> integrateForBase(List<Base> list){
+        List<ProjectIntegrate> integrateList = new ArrayList<>();
+        for(Base base:list){
+            integrateList.add(integrate(base));
+        }
+        return integrateList;
+    }
+
+    public static final List<ProjectIntegrate> integrateForItem(List<Item> list){
+        List<ProjectIntegrate> integrateList = new ArrayList<>();
+        for(Item item:list){
+            integrateList.add(integrate(item));
+        }
+        return integrateList;
     }
 }

@@ -5,7 +5,7 @@ package com.halley.bean;
  *
  * @author 17672
  */
-public class ItemIntegrate {
+public class ProjectIntegrate {
     /**
      * id
      */
@@ -20,28 +20,14 @@ public class ItemIntegrate {
         return "ItemIntegrate{" +
                 "id=" + id +
                 ", itemName='" + itemName + '\'' +
-                ", baseType='" + baseName + '\'' +
                 ", itemType='" + itemType + '\'' +
                 ", itemFormula='" + itemFormula + '\'' +
                 ", fluctuat=" + fluctuat +
                 '}';
     }
 
-    public String getBaseName() {
-        return baseName;
-    }
 
-    public void setBaseName(String baseName) {
-        this.baseName = baseName;
-    }
-
-    /**
-     * 类型
-     */
-
-    private String baseName;
-
-    private String itemType;
+    private int itemType;
     /**
      * 整合后的公式
      */
@@ -68,11 +54,11 @@ public class ItemIntegrate {
         this.itemName = itemName;
     }
 
-    public String getItemType() {
+    public int getItemType() {
         return itemType;
     }
 
-    public void setItemType(String itemType) {
+    public void setItemType(int itemType) {
         this.itemType = itemType;
     }
 

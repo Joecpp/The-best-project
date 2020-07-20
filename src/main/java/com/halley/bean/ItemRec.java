@@ -1,15 +1,13 @@
 package com.halley.bean;
 
-import java.sql.Date;
-
 /**
  * @author Jan
- * @Date 2020/7/18 21:49
+ * @int 2020/7/18 21:49
  */
 public class ItemRec {
     private Integer itemNo;
     private Integer empNo;
-    private Date mouth;
+    private int mouth;
     private int flag;
     private double salary;
 
@@ -40,11 +38,11 @@ public class ItemRec {
         this.empNo = empNo;
     }
 
-    public Date getMouth() {
+    public int getMouth() {
         return mouth;
     }
 
-    public void setMouth(Date mouth) {
+    public void setMouth(int mouth) {
         this.mouth = mouth;
     }
 

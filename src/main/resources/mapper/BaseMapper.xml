@@ -5,7 +5,17 @@
 <mapper namespace="com.halley.mapper.BaseMapper">
     <select id="getBaseFlagByItemNo" resultType="int">
         select b.flag from base b, item i where item_no = #{item_no} and i.base_no = b.base_no
+    </select>
 
+    <select id="getBaseByProjectName" resultType="com.halley.bean.Base">
+        select * from base where base_name = #{itemName}
+    </select>
 
+    <select id="getAllBase" resultType="com.halley.bean.Base">
+        select * from base
+    </select>
+
+    <select id="getBaseByFlag" resultType="com.halley.bean.Base">
+        select * from base where flag=#{flag}
     </select>
 </mapper>
