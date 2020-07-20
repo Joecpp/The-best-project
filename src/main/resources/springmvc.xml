@@ -21,9 +21,10 @@
     <!--    <mvc:resources location="/js/" mapping="/js/**"/>-->
     <!--开启SpringMVC注解的支持-->
 
-
     <mvc:annotation-driven>
     </mvc:annotation-driven>
+
+
 
     <!-- 接口跨域配置 -->
     <mvc:cors>

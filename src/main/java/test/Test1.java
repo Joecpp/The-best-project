@@ -26,7 +26,7 @@ public class Test1 {
 
     @Test
     public void test1() throws SQLException {
-        int baseFlagByItemNo = baseMapper.getBaseNameByItemNo(1);
+        String baseFlagByItemNo = baseMapper.getBaseNameByItemNo(1);
         System.out.println(baseFlagByItemNo+"--------------------------");
     }
 
