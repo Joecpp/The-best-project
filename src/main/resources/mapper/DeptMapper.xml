@@ -12,14 +12,15 @@
         select * from dept where dept_no = #{deptNo}
     </select>
 
+    <!--    where标签下and要放前面才能帮忙截取-->
     <select id="getByNameAndNo" resultType="com.halley.bean.Dept">
         select * from dept
         <where>
             <if test="deptNo!=null">
-                dept_no = #{deptNo} and
+                dept_no = #{deptNo}
             </if>
             <if test="deptName!=null ">
-                dept_name like concat('%',#{deptName},'%')
+                and dept_name like concat('%',#{deptName},'%')
             </if>
 
         </where>

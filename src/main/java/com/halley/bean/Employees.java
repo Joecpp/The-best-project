@@ -10,6 +10,16 @@ public class Employees {
     private Integer deptNo;
     private Integer jobNo;
 
+    public Employees() {
+    }
+
+    public Employees(Integer empNo, String empName, Integer deptNo, Integer jobNo) {
+        this.empNo = empNo;
+        this.empName = empName;
+        this.deptNo = deptNo;
+        this.jobNo = jobNo;
+    }
+
     @Override
     public String toString() {
         return "Employees{" +

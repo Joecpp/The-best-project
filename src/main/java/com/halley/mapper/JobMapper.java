@@ -8,8 +8,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
 
+/**
+ * @author Joe
+ * @date 2020/7/19 21:04
+ */
+@Component
 public interface JobMapper {
 
     /**
