@@ -1,6 +1,7 @@
 package com.halley.mapper;
 
 import com.halley.bean.Base;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -40,4 +41,6 @@ public interface BaseMapper {
      * @return
      */
     List<Base> getBaseByFlag(int flag);
+
+
 }

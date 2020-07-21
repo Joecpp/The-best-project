@@ -2,8 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.halley.mapper.SalaryProjectCombineMapping">
-    <select id="getSalaryProjectByProjectName" resultType="com.halley.bean.Base">
-        select * from Base where base_name = #{id}
-    </select>
+<mapper namespace="com.halley.mapper.SalaryProjectCombineMapper">
+    <insert id="insertBase" parameterType="com.halley.bean.Base">
+        insert into base(base_name, flag, fluctuat, num) values
+        (#{baseName},#{flag},#{fluctuat},#{num})
+    </insert>
 </mapper>

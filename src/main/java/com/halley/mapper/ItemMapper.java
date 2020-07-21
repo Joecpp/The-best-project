@@ -24,4 +24,10 @@ public interface ItemMapper {
      * @return
      */
     List<Item> getAllItem();
+
+    /**
+     * 插入计算项目
+     * @param item
+     */
+    void insertItem(Item item);
 }
