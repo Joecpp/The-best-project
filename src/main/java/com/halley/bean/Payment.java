@@ -8,7 +8,7 @@ import java.sql.Date;
  */
 public class Payment {
     private Integer empNo;
-    private Date month;
+    private int month;
     private int flag;
     private double salary;
 
@@ -30,11 +30,11 @@ public class Payment {
         this.empNo = empNo;
     }
 
-    public Date getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    public void setMonth(Date month) {
+    public void setMonth(int month) {
         this.month = month;
     }
 

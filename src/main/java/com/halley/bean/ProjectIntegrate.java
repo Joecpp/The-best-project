@@ -5,7 +5,7 @@ package com.halley.bean;
  *
  * @author 17672
  */
-public class ItemIntegrate {
+public class ProjectIntegrate {
     /**
      * id
      */
@@ -15,31 +15,39 @@ public class ItemIntegrate {
      */
     private String itemName;
 
+    private String first;
+
+    private String newName;
+
     @Override
     public String toString() {
-        return "ItemIntegrate{" +
+        return "ProjectIntegrate{" +
                 "id=" + id +
                 ", itemName='" + itemName + '\'' +
-                ", baseType='" + baseName + '\'' +
+                ", first='" + first + '\'' +
+                ", newName='" + newName + '\'' +
                 ", itemType='" + itemType + '\'' +
                 ", itemFormula='" + itemFormula + '\'' +
-                ", fluctuat=" + fluctuat +
+                ", fluctuat='" + fluctuat + '\'' +
                 '}';
     }
 
-    public String getBaseName() {
-        return baseName;
+    public String getNewName() {
+        return newName;
     }
 
-    public void setBaseName(String baseName) {
-        this.baseName = baseName;
+    public void setNewName(String newName) {
+        this.newName = newName;
     }
 
-    /**
-     * 类型
-     */
+    public String getFirst() {
+        return first;
+    }
 
-    private String baseName;
+    public void setFirst(String first) {
+        this.first = first;
+    }
+
 
     private String itemType;
     /**
@@ -50,7 +58,7 @@ public class ItemIntegrate {
     /**
      * 增减项
      */
-    private int fluctuat;
+    private String fluctuat;
 
     public Integer getId() {
         return id;
@@ -84,11 +92,11 @@ public class ItemIntegrate {
         this.itemFormula = itemFormula;
     }
 
-    public int getFluctuat() {
+    public String getFluctuat() {
         return fluctuat;
     }
 
-    public void setFluctuat(int fluctuat) {
+    public void setFluctuat(String fluctuat) {
         this.fluctuat = fluctuat;
     }
 }

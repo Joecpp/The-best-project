@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.halley.mapper.ItemMapper">
+    <select id="getItemByItemName" resultType="com.halley.bean.Item">
+        select * from item where item_name = #{itemName}
+    </select>
+
+    <select id="getAllItem" resultType="com.halley.bean.Item">
+        select * from item
+    </select>
+
+    <insert id="insertItem" parameterType="com.halley.bean.Item">
+        insert into item(item_name,base_no,operator,second_op,fluctuat) values
+        (#{itemName},#{baseNo},#{operator},#{secondOp},#{fluctuat})
+    </insert>
+
+    <update id="updateItem">
+        update item
+        <trim prefix="set">
+            <if test="fluctuat!=''">
+                fluctuat=#{fluctuat},
+            </if>
+            <if test="baseName!=''">
+                item_name = #{itemName},
+            </if>
+            <if test="operator!=''">
+                operator = #{operator},
+            </if>
+            <if test="secondOp!=''">
+                second_op = #{secondOp},
+            </if>
+        </trim>
+        where item_no = #{itemNo}
+    </update>
+
+    <delete id="deleteItem">
+        delete from item where item_no =#{itemNo}
+    </delete>
+</mapper>

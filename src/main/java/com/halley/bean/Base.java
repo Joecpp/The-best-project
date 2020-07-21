@@ -23,6 +23,8 @@ public class Base {
                 '}';
     }
 
+
+
     public int getFlag() {
         return flag;
     }
