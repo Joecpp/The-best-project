@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.halley.mapper.SalaryProjectCombineMapper">
     <insert id="insertBase" parameterType="com.halley.bean.Base">
-        insert into base(base_name, flag, fluctuat, num) values
-        (#{baseName},#{flag},#{fluctuat},#{num})
+        insert into base(base_name, flag, fluctuat) values
+        (#{baseName},#{flag},#{fluctuat})
     </insert>
 </mapper>

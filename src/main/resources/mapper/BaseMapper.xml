@@ -19,5 +19,32 @@
         select * from base where flag=#{flag}
     </select>
 
+    <select id="getBaseNoByBaseName" resultType="java.lang.Integer">
+        select base_no from base where base_name=#{name}
+    </select>
 
+    <select id="getAllBaseName" resultType="java.lang.String">
+        select base_name from base
+    </select>
+
+    <select id="getBaseNameByItemNo" resultType="java.lang.String">
+        select b.base_name from base b,item i where item_no = #{item_no} and i.base_no = b.base_no
+    </select>
+
+    <update id="updateBase">
+        update base
+        <trim prefix="set">
+            <if test="baseName!=''">
+                base_name = #{baseName},
+            </if>
+            <if test="fluctuat!=''">
+                fluctuat = #{fluctuat}
+            </if>
+        </trim>
+        where base_no = #{baseNo}
+    </update>
+
+    <delete id="deleteBase">
+        delete from base where base_no =#{baseNo}
+    </delete>
 </mapper>

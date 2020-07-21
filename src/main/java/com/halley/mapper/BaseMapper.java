@@ -1,6 +1,7 @@
 package com.halley.mapper;
 
 import com.halley.bean.Base;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -42,5 +43,28 @@ public interface BaseMapper {
      */
     List<Base> getBaseByFlag(int flag);
 
+    /**
+     * 根据项目名获取项目id
+     * @param name
+     * @return
+     */
+    Integer getBaseNoByBaseName(String name);
 
+    /**
+     * 获得所有baseName
+     * @return
+     */
+    List<String> getAllBaseName();
+
+    /**
+     * 更新Base
+     * @param base
+     */
+    void updateBase(Base base);
+
+    /**
+     * 删除项目
+     * @param baseNo
+     */
+    void deleteBase(Integer baseNo);
 }

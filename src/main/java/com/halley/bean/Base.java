@@ -20,19 +20,10 @@ public class Base {
                 ", flag=" + flag +
                 ", baseName='" + baseName + '\'' +
                 ", fluctuat=" + fluctuat +
-                ", num=" + num +
                 '}';
     }
 
-    public double getNum() {
-        return num;
-    }
 
-    public void setNum(double num) {
-        this.num = num;
-    }
-
-    private double num;
 
     public int getFlag() {
         return flag;

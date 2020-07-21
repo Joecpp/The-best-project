@@ -15,15 +15,37 @@ public class ProjectIntegrate {
      */
     private String itemName;
 
+    private String first;
+
+    private String newName;
+
     @Override
     public String toString() {
-        return "ItemIntegrate{" +
+        return "ProjectIntegrate{" +
                 "id=" + id +
                 ", itemName='" + itemName + '\'' +
+                ", first='" + first + '\'' +
+                ", newName='" + newName + '\'' +
                 ", itemType='" + itemType + '\'' +
                 ", itemFormula='" + itemFormula + '\'' +
-                ", fluctuat=" + fluctuat +
+                ", fluctuat='" + fluctuat + '\'' +
                 '}';
+    }
+
+    public String getNewName() {
+        return newName;
+    }
+
+    public void setNewName(String newName) {
+        this.newName = newName;
+    }
+
+    public String getFirst() {
+        return first;
+    }
+
+    public void setFirst(String first) {
+        this.first = first;
     }
 
 

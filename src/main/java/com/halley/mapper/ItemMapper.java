@@ -1,6 +1,7 @@
 package com.halley.mapper;
 
 import com.halley.bean.Item;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -30,4 +31,17 @@ public interface ItemMapper {
      * @param item
      */
     void insertItem(Item item);
+
+    /**
+     * 更新Item
+     * @param item
+     */
+    void updateItem(Item item);
+
+    /**
+     * 删除项目
+
+     * @param itemNo
+     */
+    void deleteItem(Integer itemNo);
 }

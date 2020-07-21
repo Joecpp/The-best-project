@@ -62,4 +62,37 @@ public class Test1 {
         List<ProjectIntegrate> salaryProjectByCondition = salaryProjectService.getSalaryProjectByCondition(projectIntegrate);
         System.out.println(salaryProjectByCondition);
     }
+
+    @Test
+    public void test6(){
+        String a = "+213";
+        System.out.println(a.split("\\+")[1] +"-----------------------------------");
+
+    }
+
+    @Test
+    public void test7(){
+        ProjectIntegrate projectIntegrate = new ProjectIntegrate();
+        projectIntegrate.setItemFormula("2000");
+        projectIntegrate.setItemName("水暖补贴");
+        projectIntegrate.setItemType("固定项目");
+        projectIntegrate.setFluctuat("增");
+        salaryProjectService.insertItem(projectIntegrate);
+    }
+
+    @Test public void test8(){
+        ProjectIntegrate projectIntegrate = new ProjectIntegrate();
+        projectIntegrate.setItemName("病假");
+        projectIntegrate.setItemType("导入项目");
+        projectIntegrate.setFluctuat("减");
+        projectIntegrate.setItemFormula("*20");
+        projectIntegrate.setFirst("病假");
+        salaryProjectService.insertItem(projectIntegrate);
+    }
+
+    @Test
+    public void test9(){
+        String name = baseMapper.getBaseNameByItemNo(2);
+        System.out.println(name);
+    }
 }
