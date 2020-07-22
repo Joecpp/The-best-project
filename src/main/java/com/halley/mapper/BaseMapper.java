@@ -67,4 +67,18 @@ public interface BaseMapper {
      * @param baseNo
      */
     void deleteBase(Integer baseNo);
+
+    /**
+     * 获得
+     * @param baseNo
+     * @return
+     */
+    String getBaseNameByBaseNo(Integer baseNo);
+
+    /**
+     * byFlag
+     * @param flag
+     * @return
+     */
+    List<String> getBaseNameByFlag(int flag);
 }

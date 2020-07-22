@@ -1,9 +1,12 @@
 package test;
 
 
+import com.halley.bean.BaseForJson;
+import com.halley.bean.BaseIntegrate;
 import com.halley.bean.ProjectIntegrate;
 import com.halley.mapper.AdminMapper;
 import com.halley.mapper.BaseMapper;
+import com.halley.service.BaseManageService;
 import com.halley.service.SalaryProjectService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +32,9 @@ public class Test1 {
 
     @Autowired
     SalaryProjectService salaryProjectService;
+
+    @Autowired
+    BaseManageService baseManageService;
 
     @Test
     public void test1() throws SQLException {
@@ -94,5 +100,14 @@ public class Test1 {
     public void test9(){
         String name = baseMapper.getBaseNameByItemNo(2);
         System.out.println(name);
+    }
+    @Test
+    public void test10(){
+        List<BaseForJson> baseRecByCondition = baseManageService.getBaseRecByCondition(new BaseIntegrate());
+        System.out.println(baseRecByCondition+"-----------------------------");
+        System.out.println(baseRecByCondition+"-----------------------------");
+
+        System.out.println(baseRecByCondition+"-----------------------------");
+
     }
 }

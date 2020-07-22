@@ -55,4 +55,6 @@ public interface DeptMapper {
      * @return 是否正确删除
      */
     public boolean deleteDept(@Param("deptNo")Integer deptNo);
+
+
 }

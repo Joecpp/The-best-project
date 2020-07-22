@@ -47,4 +47,13 @@
     <delete id="deleteBase">
         delete from base where base_no =#{baseNo}
     </delete>
+
+    <select id="getBaseNameByBaseNo" resultType="java.lang.String">
+        select base_name from base where base_no = #{baseNo} and flag = 0
+    </select>
+
+    <select id="getBaseNameByFlag" resultType="java.lang.String">
+                select base_name from base where flag = 1
+
+    </select>
 </mapper>

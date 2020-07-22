@@ -63,4 +63,11 @@ public interface EmployeesMapper {
      * @return 是否插入成功
      */
     public boolean addEmp(@Param("emp") Employees emp);
+
+    /**
+     * 获得姓名
+     * @param deptNo
+     * @return
+     */
+    List<String> getEmpNameByDeptNo(Integer deptNo);
 }

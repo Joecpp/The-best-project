@@ -47,4 +47,8 @@
     <delete id="deleteEmp" parameterType="com.halley.bean.Employees">
         delete from employees where emp_no = #{empNo}
     </delete>
+
+    <select id="getEmpNameByDeptNo" resultType="java.lang.String">
+        select emp_name from employees where dept_no = #{deptNo}
+    </select>
 </mapper>
