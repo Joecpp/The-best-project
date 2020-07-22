@@ -245,6 +245,7 @@ public class IntegrateUtil {
         BaseMapper baseMapper = ac.getBean(BaseMapper.class);
         ArrayList<ImportForJson> importForJsons = new ArrayList<>();
         int len = list.size();
+        if(list.size()==0) {return null;}
         for (int i=0;i<len;i++){
             ImportRec rec = list.get(0);
             ImportForJson importForJson = new ImportForJson();
@@ -262,14 +263,14 @@ public class IntegrateUtil {
             map.put(baseNameByBaseNo,rec.getNum());
             for(int j = 1;j<list.size();j++){
                 if(list.get(j).getEmpNo().equals(empNo)){
-                    String baseNameByBaseNo1 = baseMapper.getBaseNameByBaseNo1(rec.getImportNo());
+                    String baseNameByBaseNo1 = baseMapper.getBaseNameByBaseNo1(list.get(j).getImportNo());
                     map.put(baseNameByBaseNo1,list.get(j).getNum());
                     list.remove(j);
                 }
             }
             importForJson.setMap(map);
             list.remove(0);
-
+            if(list.size()==0) {return importForJsons;}
             importForJsons.add(importForJson);
         }
         return importForJsons;

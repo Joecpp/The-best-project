@@ -21,6 +21,16 @@ public class ImportRec {
         this.importNo = importId;
     }
 
+    public ImportRec() {
+    }
+
+    public ImportRec(Integer importNo, Integer empNo, Date date, double num) {
+        this.importNo = importNo;
+        this.empNo = empNo;
+        this.date = date;
+        this.num = num;
+    }
+
     public Integer getEmpNo() {
         return empNo;
     }

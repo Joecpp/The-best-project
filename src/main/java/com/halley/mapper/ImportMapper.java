@@ -19,4 +19,10 @@ public interface ImportMapper {
      * @return
      */
     List<ImportRec> getAllImportRec(ImportForJson importRec);
+
+    /**
+     * 插入
+     * @param importRec
+     */
+    void insertImportRec(ImportRec importRec);
 }

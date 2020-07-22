@@ -43,4 +43,9 @@
     <select id="getDeptNoByDeptName" resultType="java.lang.Integer">
         select dept_no from dept where dept_name = #{deptName}
     </select>
+
+    <insert id="insertImportRec">
+        insert into import_rec(import_no, emp_no, date ,num)
+        values(#{importNo}, #{empNo}, #{date}, #{num})
+    </insert>
 </mapper>

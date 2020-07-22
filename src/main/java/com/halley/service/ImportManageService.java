@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Jan
@@ -57,5 +59,20 @@ public class ImportManageService {
         List<ImportRec> allImportRec = importMapper.getAllImportRec(importForJson);
         list = IntegrateUtil.importIntegration(allImportRec);
         return list;
+    }
+
+    public void insertImportRec(ImportForJson importForJson){
+        String date = importForJson.getDate();
+        Integer empNo = importForJson.getEmpNo();
+        Map map = importForJson.getMap();
+        Set<String> set = map.keySet();
+        for(String s:set ){
+            double i = (double) map.get(s);
+            ImportRec rec = new ImportRec(baseMapper.getBaseNoByBaseName(s), empNo, Date.valueOf(date), i);
+            importMapper.insertImportRec(rec);
+
+        }
+
+
     }
 }
