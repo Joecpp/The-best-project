@@ -56,5 +56,10 @@ public interface DeptMapper {
      */
     public boolean deleteDept(@Param("deptNo")Integer deptNo);
 
-
+    /**
+     * 获得ID
+     * @param deptName
+     * @return
+     */
+    Integer getDeptNoByDeptName(String deptName);
 }

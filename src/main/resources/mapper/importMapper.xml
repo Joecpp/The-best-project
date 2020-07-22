@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.halley.mapper.ImportMapper">
+    <select id="getAllImportRec" resultType="com.halley.bean.ImportRec">
+        select * from import_rec
+        <where>
+            <if test="empNo!=null">
+                emp_no = #{empNo}
+            </if>
+            <if test="year!=null">
+                year(date)= #{year}
+            </if>
+            <if test="month!=null">
+                month (date) = #{month}
+            </if>
+        </where>
+    </select>
+</mapper>

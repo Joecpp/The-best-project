@@ -51,4 +51,8 @@
     <select id="getEmpNameByDeptNo" resultType="java.lang.String">
         select emp_name from employees where dept_no = #{deptNo}
     </select>
+
+    <select id="getEmpNoByEmpName" resultType="java.lang.Integer">
+        select dept_no from employees where deptName=#{deptName}
+    </select>
 </mapper>

@@ -39,4 +39,8 @@
     <delete id="deleteDept" parameterType="com.halley.bean.Dept">
         delete from dept where dept_no = #{deptNo}
     </delete>
+
+    <select id="getDeptNoByDeptName" resultType="java.lang.Integer">
+        select dept_no from dept where dept_name = #{deptName}
+    </select>
 </mapper>

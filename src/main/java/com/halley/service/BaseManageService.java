@@ -7,9 +7,12 @@ import com.halley.mapper.DeptMapper;
 import com.halley.mapper.EmployeesMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Jan
@@ -28,6 +31,7 @@ public class BaseManageService {
 
     @Autowired
     EmployeesMapper employeesMapper;
+
 
     public List<String> getAllDeptName() {
         List<Dept> allDept = deptMapper.getAllDept();
@@ -51,10 +55,8 @@ public class BaseManageService {
     public List<BaseForJson> getBaseRecByCondition(BaseIntegrate baseIntegrate) {
         String deptName = baseIntegrate.getDeptName();
         Integer empNo = baseIntegrate.getEmpNo();
-        double highSalary = baseIntegrate.getHighSalary();
-        double lowSalary = baseIntegrate.getLowSalary();
         List<BaseForJson> list = new ArrayList<>();
-        if (deptName == null && empNo == null && highSalary == 0 && lowSalary == 0) {
+        if ("".equals(deptName) ) {
             List<BaseRec> baseRecs = baseRecMapper.getAllBaseRec();
             for (BaseRec b :
                     baseRecs) {
@@ -68,47 +70,34 @@ public class BaseManageService {
             }
             return BaseForJson.Normalization(list);
         }
-        if (deptName != null) {
+        else  {
             List<BaseRec> baseRecByDeptName = baseRecMapper.getBaseRecByDeptName(deptName);
             for (BaseRec b :
                     baseRecByDeptName) {
                 List<Employees> byDeptNo = employeesMapper.getByDeptNo(b.getDeptNo());
                 Dept byNo = deptMapper.getByNo(b.getDeptNo());
                 for (Employees s : byDeptNo) {
-                    String name = baseMapper.getBaseNameByItemNo(b.getBaseNo());
+                    String name = baseMapper.getBaseNameByBaseNo(b.getBaseNo());
                     BaseForJson baseForJson = new BaseForJson(s.getEmpName(), s.getEmpNo(), name,b.getBaseSalary(),byNo.getDeptName());
                     list.add(baseForJson);
                 }
             }
         }
-        if (empNo != null) {
-            List<BaseRec> baseRecByEmpNo = baseRecMapper.getBaseRecByEmpNo(empNo);
-            for (BaseRec b :
-                    baseRecByEmpNo) {
-                List<Employees> byDeptNo = employeesMapper.getByDeptNo(b.getDeptNo());
-                Dept byNo = deptMapper.getByNo(b.getDeptNo());
-                for (Employees s : byDeptNo) {
-                    String name = baseMapper.getBaseNameByItemNo(b.getBaseNo());
-                    BaseForJson baseForJson = new BaseForJson(s.getEmpName(), s.getEmpNo(), name,b.getBaseSalary(),byNo.getDeptName());
-                    list.add(baseForJson);
-                }
-            }
-        }
-        if (highSalary != 0 && lowSalary != 0) {
-            List<BaseRec> baseRecBySalary = baseRecMapper.getBaseRecBySalary(highSalary, lowSalary);
-            for (BaseRec b :
-                    baseRecBySalary) {
-                List<Employees> byDeptNo = employeesMapper.getByDeptNo(b.getDeptNo());
-                Dept byNo = deptMapper.getByNo(b.getDeptNo());
-                for (Employees s : byDeptNo) {
-                    String name = baseMapper.getBaseNameByItemNo(b.getBaseNo());
-                    BaseForJson baseForJson = new BaseForJson(s.getEmpName(), s.getEmpNo(), name,b.getBaseSalary(),byNo.getDeptName());
-                    list.add(baseForJson);
-                }
-            }
 
-        }
+
         return BaseForJson.Normalization(list);
+    }
+    @Transactional(rollbackFor=Exception.class)
+    public void updateBaseRec(BaseForJson baseForJson){
+        Integer deptNoByDeptName = deptMapper.getDeptNoByDeptName(baseForJson.getDeptName());
+        Map map = baseForJson.getMap();
+        Set<String> set = map.keySet();
+        for(String s:set){
+            Integer baseNoByBaseName = baseMapper.getBaseNoByBaseName(s);
+            double baseSalary = Double.parseDouble((String) map.get(s));
+            baseRecMapper.updateBaseRec(baseNoByBaseName,deptNoByDeptName,baseSalary);
+        }
+
     }
 
 }

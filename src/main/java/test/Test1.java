@@ -3,10 +3,13 @@ package test;
 
 import com.halley.bean.BaseForJson;
 import com.halley.bean.BaseIntegrate;
+import com.halley.bean.ImportForJson;
 import com.halley.bean.ProjectIntegrate;
 import com.halley.mapper.AdminMapper;
 import com.halley.mapper.BaseMapper;
+import com.halley.mapper.ImportMapper;
 import com.halley.service.BaseManageService;
+import com.halley.service.ImportManageService;
 import com.halley.service.SalaryProjectService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -109,5 +112,13 @@ public class Test1 {
 
         System.out.println(baseRecByCondition+"-----------------------------");
 
+    }
+
+    @Autowired
+    ImportManageService importManageService;
+    @Test
+    public void test11() {
+        List<ImportForJson> importForJson = importManageService.getImportForJson(new ImportForJson());
+        System.out.println(importForJson);
     }
 }

@@ -22,4 +22,9 @@
     <select id="getBaseRecBySalary" resultType="com.halley.bean.BaseRec">
         select * from base_rec where base_salary between #{high} and #{low}
     </select>
+
+    <update id="updateBaseRec">
+        update base_rec set base_salary = #{2}
+        where base_no = #{0} and dept_no = #{1}
+    </update>
 </mapper>

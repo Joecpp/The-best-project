@@ -1,9 +1,10 @@
 package com.halley.utils;
 
-import com.halley.bean.Base;
-import com.halley.bean.Item;
-import com.halley.bean.ProjectIntegrate;
+import com.halley.bean.*;
 import com.halley.mapper.BaseMapper;
+import com.halley.mapper.DeptMapper;
+import com.halley.mapper.EmployeesMapper;
+import com.halley.mapper.ImportMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -21,7 +22,7 @@ import java.util.Map;
  */
 public class IntegrateUtil {
 
-
+    static ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:applicationContext.xml");
 
     public static final ProjectIntegrate integrate(Base base) {
         ProjectIntegrate projectIntegrate = new ProjectIntegrate();
@@ -92,7 +93,6 @@ public class IntegrateUtil {
     }
 
     public static final Map extractForBase(ProjectIntegrate integrate) {
-        ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:applicationContext.xml");
         BaseMapper mapper = ac.getBean(BaseMapper.class);
         Map map = new HashMap();
         Base base = new Base();
@@ -218,6 +218,7 @@ public class IntegrateUtil {
 
 
     public static final Map extractForAllItemSimple(ProjectIntegrate integrate){
+
         Map map = new HashMap();
         if ("固定项目".equals(integrate.getItemType())){
             Base base = new Base();
@@ -235,7 +236,43 @@ public class IntegrateUtil {
             map.put("item",item);
         }
         return map;
+    }
 
+    public static final List<ImportForJson> importIntegration(List<ImportRec> list){
+        ImportMapper importMapper = ac.getBean(ImportMapper.class);
+        DeptMapper deptMapper = ac.getBean(DeptMapper.class);
+        EmployeesMapper employeesMapper = ac.getBean(EmployeesMapper.class);
+        BaseMapper baseMapper = ac.getBean(BaseMapper.class);
+        ArrayList<ImportForJson> importForJsons = new ArrayList<>();
+        int len = list.size();
+        for (int i=0;i<len;i++){
+            ImportRec rec = list.get(0);
+            ImportForJson importForJson = new ImportForJson();
+            Integer empNo = rec.getEmpNo();
+            Employees byEmpNo = employeesMapper.getByEmpNo(empNo);
+            Dept byNo = deptMapper.getByNo(byEmpNo.getDeptNo());
+            importForJson.setEmpNo(empNo);
+            importForJson.setEmpName(byEmpNo.getEmpName());
+            importForJson.setDeptName(byNo.getDeptName());
+            importForJson.setDate(rec.getMouth().toString());
+            importForJson.setMonth();
+            importForJson.setYear();
+            String baseNameByBaseNo = baseMapper.getBaseNameByBaseNo1(rec.getImportNo());
+            Map map = new HashMap(5);
+            map.put(baseNameByBaseNo,rec.getNum());
+            for(int j = 1;j<list.size();j++){
+                if(list.get(j).getEmpNo().equals(empNo)){
+                    String baseNameByBaseNo1 = baseMapper.getBaseNameByBaseNo1(rec.getImportNo());
+                    map.put(baseNameByBaseNo1,list.get(j).getNum());
+                    list.remove(j);
+                }
+            }
+            importForJson.setMap(map);
+            list.remove(0);
+
+            importForJsons.add(importForJson);
+        }
+        return importForJsons;
 
     }
 }

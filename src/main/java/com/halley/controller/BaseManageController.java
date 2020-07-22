@@ -50,4 +50,13 @@ public class BaseManageController {
         response.success(baseRecByCondition);
         return response;
     }
+
+    @PostMapping("/updateItem")
+    @ResponseBody
+    public Response updateItem(@RequestBody BaseForJson baseForJson){
+        Response response = new Response();
+        baseManageService.updateBaseRec(baseForJson);
+        response.success();
+        return response;
+    }
 }

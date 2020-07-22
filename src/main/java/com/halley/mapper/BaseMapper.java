@@ -76,6 +76,12 @@ public interface BaseMapper {
     String getBaseNameByBaseNo(Integer baseNo);
 
     /**
+     * 获得
+     * @param baseNo
+     * @return
+     */
+    String getBaseNameByBaseNo1(Integer baseNo);
+    /**
      * byFlag
      * @param flag
      * @return

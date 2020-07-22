@@ -38,4 +38,13 @@ public interface BaseRecMapper {
      * @return
      */
     List<BaseRec> getBaseRecBySalary(double high, double low);
+
+
+    /**
+     * 更改
+     * @param baseNo
+     * @param deptNo
+     * @param baseSalary
+     */
+    void updateBaseRec(Integer baseNo,Integer deptNo, double baseSalary);
 }

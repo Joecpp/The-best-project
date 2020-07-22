@@ -1,22 +1,24 @@
 package com.halley.bean;
 
 
+import java.sql.Date;
+
 /**
  * @author Jan
  * @int 2020/7/18 21:28
  */
 public class ImportRec {
-    private Integer importId;
+    private Integer importNo;
     private Integer empNo;
-    private int month;
+    private Date date;
     private double num;
 
-    public Integer getImportId() {
-        return importId;
+    public Integer getImportNo() {
+        return importNo;
     }
 
-    public void setImportId(Integer importId) {
-        this.importId = importId;
+    public void setImportNo(Integer importId) {
+        this.importNo = importId;
     }
 
     public Integer getEmpNo() {
@@ -27,12 +29,12 @@ public class ImportRec {
         this.empNo = empNo;
     }
 
-    public int getMouth() {
-        return month;
+    public Date getMouth() {
+        return date;
     }
 
-    public void setMouth(int month) {
-        this.month = month;
+    public void setMouth(Date month) {
+        this.date = month;
     }
 
     public double getNum() {

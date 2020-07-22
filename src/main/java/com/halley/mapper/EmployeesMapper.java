@@ -70,4 +70,11 @@ public interface EmployeesMapper {
      * @return
      */
     List<String> getEmpNameByDeptNo(Integer deptNo);
+
+    /**
+     * 获得名称
+     * @param empName
+     * @return
+     */
+    Integer getEmpNoByEmpName(String empName);
 }
