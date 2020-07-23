@@ -15,8 +15,37 @@ public class ImportForJson {
     private String date;
     private String year;
     private String month;
+    private double num;
 
+    @Override
+    public String toString() {
+        return "ImportForJson{" +
+                "empNo=" + empNo +
+                ", empName='" + empName + '\'' +
+                ", deptName='" + deptName + '\'' +
+                ", date='" + date + '\'' +
+                ", year='" + year + '\'' +
+                ", month='" + month + '\'' +
+                ", num=" + num +
+                ", map=" + map +
+                '}';
+    }
 
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public double getNum() {
+        return num;
+    }
+
+    public void setNum(double num) {
+        this.num = num;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
 
     public String getYear() {
         return year;
@@ -34,17 +63,7 @@ public class ImportForJson {
         this.month = this.year = this.date.toString().split("-")[1];
     }
 
-    private Map map;
-    @Override
-    public String toString() {
-        return "ImportForJson{" +
-                "empNo=" + empNo +
-                ", empName='" + empName + '\'' +
-                ", deptName='" + deptName + '\'' +
-                ", date=" + date +
-                ", map=" + map +
-                '}';
-    }
+    private Map<String,Double> map;
 
     public Integer getEmpNo() {
         return empNo;

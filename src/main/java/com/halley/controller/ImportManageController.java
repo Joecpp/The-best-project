@@ -1,14 +1,12 @@
 package com.halley.controller;
 
 import com.halley.bean.ImportForJson;
+import com.halley.bean.ImportRec;
 import com.halley.bean.Response;
 import com.halley.service.ImportManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,6 +35,15 @@ public class ImportManageController {
         List<ImportForJson> importForJson1 = importManageService.getImportForJson(importForJson);
 
         response.success(importForJson1);
+        return response;
+    }
+
+    @PutMapping("/importProjects")
+    @ResponseBody
+    public Response updateProject(@RequestBody ImportForJson importForJson){
+        Response response = new Response();
+        importManageService.updateImportRec(importForJson);
+        response.success();
         return response;
     }
 }

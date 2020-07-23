@@ -262,7 +262,7 @@ public class IntegrateUtil {
             Map map = new HashMap(5);
             map.put(baseNameByBaseNo,rec.getNum());
             for(int j = 1;j<list.size();j++){
-                if(list.get(j).getEmpNo().equals(empNo)){
+                if(list.get(j).getEmpNo().equals(empNo)&&list.get(j).getMouth().equals(rec.getMouth())){
                     String baseNameByBaseNo1 = baseMapper.getBaseNameByBaseNo1(list.get(j).getImportNo());
                     map.put(baseNameByBaseNo1,list.get(j).getNum());
                     list.remove(j);

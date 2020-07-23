@@ -1,16 +1,13 @@
 package com.halley.service;
 
-import com.halley.bean.Base;
-import com.halley.bean.Item;
-import com.halley.bean.ProjectIntegrate;
-import com.halley.mapper.BaseMapper;
-import com.halley.mapper.ItemMapper;
-import com.halley.mapper.SalaryProjectCombineMapper;
+import com.halley.bean.*;
+import com.halley.mapper.*;
 import com.halley.utils.IntegrateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +26,18 @@ public class SalaryProjectService {
 
     @Autowired
     SalaryProjectCombineMapper combineMapper;
+
+    @Autowired
+    BaseManageService baseManageService;
+
+    @Autowired
+    DeptMapper deptMapper;
+
+    @Autowired
+    EmployeesMapper employeesMapper;
+
+    @Autowired
+    ImportMapper importMapper;
 
     /**
      * 根据条件返回需要的工资项目
@@ -88,13 +97,43 @@ public class SalaryProjectService {
         System.out.println(item);
         if (base != null) {
             combineMapper.insertBase(base);
+            List<Dept> allDept = deptMapper.getAllDept();
+            for(Dept dept:allDept){
+                BaseRec baseRec = new BaseRec();
+                Integer baseNoByBaseName = baseMapper.getBaseNoByBaseName(base.getBaseName());
+                baseRec.setBaseNo(baseNoByBaseName);
+                baseRec.setBaseSalary(0);
+                baseRec.setDeptNo(dept.getDeptNo());
+                baseMapper.insertBaseRec(baseRec);
+            }
         } else if (anImport != null && item == null) {
             combineMapper.insertBase(anImport);
+
+            List<Employees> allEmp = employeesMapper.getAllEmp();
+            for(Employees employees:allEmp){
+                ImportRec importRec = new ImportRec();
+                Integer baseNoByBaseName = baseMapper.getBaseNoByBaseName(anImport.getBaseName());
+                importRec.setNum(0);
+                importRec.setEmpNo(employees.getEmpNo());
+                importRec.setImportNo(baseNoByBaseName);
+                importRec.setMouth(Date.valueOf("2020-1-1"));
+                importMapper.insertImportRec(importRec);
+            }
         } else if (anImport != null && item != null) {
             combineMapper.insertBase(anImport);
             Integer baseNoByBaseName = baseMapper.getBaseNoByBaseName(anImport.getBaseName());
             item.setBaseNo(baseNoByBaseName);
             itemMapper.insertItem(item);
+            List<Employees> allEmp = employeesMapper.getAllEmp();
+            for(Employees employees:allEmp){
+                ImportRec importRec = new ImportRec();
+                Integer baseNo = baseMapper.getBaseNoByBaseName(anImport.getBaseName());
+                importRec.setNum(0);
+                importRec.setEmpNo(employees.getEmpNo());
+                importRec.setImportNo(baseNo);
+                importRec.setMouth(Date.valueOf("2020-1-1"));
+                importMapper.insertImportRec(importRec);
+            }
         }else {
             item.setBaseNo(baseMapper.getBaseNoByBaseName(projectIntegrate.getFirst()));
 

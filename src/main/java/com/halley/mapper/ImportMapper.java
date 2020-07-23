@@ -3,6 +3,7 @@ package com.halley.mapper;
 import com.halley.bean.Base;
 import com.halley.bean.ImportForJson;
 import com.halley.bean.ImportRec;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -44,4 +45,11 @@ public interface ImportMapper {
      * @return
      */
     ImportRec getImportRecByBaseNo(Integer baseNo,Integer empNo, String year, String month);
+
+    /**
+     * 升级啦
+     * @param importRec
+     */
+    void updateImportRec(@Param("imp") ImportRec importRec);
+
 }

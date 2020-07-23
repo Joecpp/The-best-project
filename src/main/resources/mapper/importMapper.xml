@@ -27,4 +27,15 @@
         select * from import_rec where import_no = #{0} and emp_no = #{1} and year(date)=#{2 }
         and month(date) = #{3}
     </select>
+    <insert id="insertImportRec">
+        insert into import_rec values (
+        #{importNo},#{empNo},#{date},#{num}
+        )
+    </insert>
+
+    <update id="updateImportRec" >
+        update import_rec SET import_rec.date = #{imp.date},num=#{imp.num}
+        where import_no =#{imp.importNo} and emp_no=#{imp.empNo}
+    </update>
+
 </mapper>

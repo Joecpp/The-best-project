@@ -102,4 +102,10 @@ public interface BaseMapper {
      * @return
      */
     List<BaseRec> getBaseRecByDeptNo(Integer deptNo);
+
+    /**
+     *  插入信息
+     * @param baseRec
+     */
+    void insertBaseRec(BaseRec baseRec);
 }

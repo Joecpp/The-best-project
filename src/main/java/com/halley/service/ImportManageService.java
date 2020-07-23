@@ -72,7 +72,23 @@ public class ImportManageService {
             importMapper.insertImportRec(rec);
 
         }
+    }
 
+    public void updateImportRec(ImportForJson importForJson){
+        Map map = importForJson.getMap();
+        Integer empNo = importForJson.getEmpNo();
+        String date = importForJson.getDate();
+        Set<String> set = map.keySet();
 
+        for(String s:set){
+            Integer baseNoByBaseName = baseMapper.getBaseNoByBaseName(s);
+            ImportRec importRec = new ImportRec();
+            importRec.setMouth(Date.valueOf(date));
+            importRec.setImportNo(baseNoByBaseName);
+            importRec.setEmpNo(empNo);
+            String s1 = map.get(s).toString();
+            importRec.setNum(Double.valueOf(s1));
+            importMapper.updateImportRec(importRec);
+        }
     }
 }

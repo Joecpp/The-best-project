@@ -67,4 +67,9 @@
     <select id="getBaseRecByDeptNo" resultType="com.halley.bean.BaseRec">
         select * from base_rec where dept_no = #{deptNo}
     </select>
+
+    <insert id="insertBaseRec">
+        insert into base_rec(base_no,dept_no,base_salary)
+        values (#{baseNo},#{deptNo},#{baseSalary})
+    </insert>
 </mapper>
