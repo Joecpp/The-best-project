@@ -94,7 +94,7 @@ public class BaseManageService {
         Set<String> set = map.keySet();
         for(String s:set){
             Integer baseNoByBaseName = baseMapper.getBaseNoByBaseName(s);
-            double baseSalary = Double.parseDouble((String) map.get(s));
+            double baseSalary = Double.parseDouble(String.valueOf( map.get(s)));
             baseRecMapper.updateBaseRec(baseNoByBaseName,deptNoByDeptName,baseSalary);
         }
 
