@@ -270,10 +270,22 @@ public class IntegrateUtil {
             }
             importForJson.setMap(map);
             list.remove(0);
-            if(list.size()==0) {return importForJsons;}
             importForJsons.add(importForJson);
+            if(list.size()==0) {return importForJsons;}
+
         }
         return importForJsons;
 
+    }
+
+    public static final double calculation(double first,double second, char op){
+        double v = 0;
+        if (op=='*'){
+            v = first * second;
+        }else if(op=='+'){
+            v = first + second;
+
+        }
+        return v;
     }
 }

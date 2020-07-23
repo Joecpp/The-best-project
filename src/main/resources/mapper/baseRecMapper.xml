@@ -27,4 +27,8 @@
         update base_rec set base_salary = #{2}
         where base_no = #{0} and dept_no = #{1}
     </update>
+
+    <select id="getBaseRecByBaseNo" resultType="com.halley.bean.BaseRec">
+        select * from base_rec where base_no =#{0} and dept_no = #{1}
+    </select>
 </mapper>

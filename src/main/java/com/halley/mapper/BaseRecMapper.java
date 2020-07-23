@@ -47,4 +47,11 @@ public interface BaseRecMapper {
      * @param baseSalary
      */
     void updateBaseRec(Integer baseNo,Integer deptNo, double baseSalary);
+
+    /**
+     * 获得固定项目By No
+     * @param baseNo
+     * @return
+     */
+    BaseRec getBaseRecByBaseNo(Integer baseNo,Integer deptNo);
 }

@@ -25,4 +25,23 @@ public interface ImportMapper {
      * @param importRec
      */
     void insertImportRec(ImportRec importRec);
+
+    /**
+     * 查出某人的所有导入项目
+     * @param empNo
+     * @param year
+     * @param month
+     * @return
+     */
+    List<ImportRec> getImportRecByEmpNo(Integer empNo, String year, String month);
+
+    /**
+     * 获得导入项目
+     * @param baseNo
+     * @param empNo
+     * @param year
+     * @param month
+     * @return
+     */
+    ImportRec getImportRecByBaseNo(Integer baseNo,Integer empNo, String year, String month);
 }

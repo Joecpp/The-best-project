@@ -1,6 +1,7 @@
 package com.halley.mapper;
 
 import com.halley.bean.Base;
+import com.halley.bean.BaseRec;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
@@ -76,15 +77,29 @@ public interface BaseMapper {
     String getBaseNameByBaseNo(Integer baseNo);
 
     /**
-     * 获得
+     * byFlag0
      * @param baseNo
      * @return
      */
     String getBaseNameByBaseNo1(Integer baseNo);
+
     /**
-     * byFlag
+     * 没有其他条件
+     * @param baseNo
+     * @return
+     */
+    Base getBaseByBaseNo(Integer baseNo);
+    /**
+     * byFlag1
      * @param flag
      * @return
      */
     List<String> getBaseNameByFlag(int flag);
+
+    /**
+     * 获得部门固定工资
+     * @param deptNo
+     * @return
+     */
+    List<BaseRec> getBaseRecByDeptNo(Integer deptNo);
 }

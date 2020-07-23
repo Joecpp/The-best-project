@@ -17,4 +17,14 @@
             </if>
         </where>
     </select>
+
+    <select id="getImportRecByEmpNo" resultType="com.halley.bean.ImportRec">
+        select * from import_rec where emp_no = #{0} and year(date)=#{1 }
+        and month(date) = #{2}
+    </select>
+
+    <select id="getImportRecByBaseNo" resultType="com.halley.bean.ImportRec">
+        select * from import_rec where import_no = #{0} and emp_no = #{1} and year(date)=#{2 }
+        and month(date) = #{3}
+    </select>
 </mapper>

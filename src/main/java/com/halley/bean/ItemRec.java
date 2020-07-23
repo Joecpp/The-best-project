@@ -1,13 +1,20 @@
 package com.halley.bean;
 
+import java.sql.Date;
+
 /**
  * @author Jan
  * @int 2020/7/18 21:49
  */
 public class ItemRec {
     private Integer itemNo;
+
+    public Date getDate() {
+        return date;
+    }
+
     private Integer empNo;
-    private int mouth;
+    private Date date;
     private int flag;
     private double salary;
 
@@ -16,7 +23,7 @@ public class ItemRec {
         return "ItemRec{" +
                 "itemNo=" + itemNo +
                 ", empNo=" + empNo +
-                ", mouth=" + mouth +
+                ", mouth=" + date +
                 ", flag=" + flag +
                 ", salary=" + salary +
                 '}';
@@ -38,12 +45,12 @@ public class ItemRec {
         this.empNo = empNo;
     }
 
-    public int getMouth() {
-        return mouth;
+    public Date getMouth() {
+        return date;
     }
 
-    public void setMouth(int mouth) {
-        this.mouth = mouth;
+    public void setMouth(Date mouth) {
+        this.date = mouth;
     }
 
     public int getFlag() {

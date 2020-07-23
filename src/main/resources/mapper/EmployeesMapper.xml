@@ -53,6 +53,6 @@
     </select>
 
     <select id="getEmpNoByEmpName" resultType="java.lang.Integer">
-        select dept_no from employees where deptName=#{deptName}
+        select emp_no from employees where emp_name=#{empName}
     </select>
 </mapper>

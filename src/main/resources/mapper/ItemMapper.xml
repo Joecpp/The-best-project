@@ -38,4 +38,8 @@
     <delete id="deleteItem">
         delete from item where item_no =#{itemNo}
     </delete>
+
+    <select id="getItemByBaseNo" resultType="com.halley.bean.Item">
+        select * from item where base_no =#{baseNo}
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.halley.mapper;
 
 import com.halley.bean.Item;
+import com.halley.bean.ItemRec;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -44,4 +45,18 @@ public interface ItemMapper {
      * @param itemNo
      */
     void deleteItem(Integer itemNo);
+
+    /**
+     * 根据基本项目查找
+     * @param baseNo
+     * @return
+     */
+    Item getItemByBaseNo(Integer baseNo);
+
+    /**
+     * 获得Item具体项目
+     * @param empNo
+     * @return
+     */
+    ItemRec getItemRecByEmpNo(Integer empNo);
 }

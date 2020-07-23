@@ -10,4 +10,27 @@
     <select id="getPaymentByItemName" resultType="com.halley.bean.Payment">
         select * from payment where
     </select>
+
+    <insert id="insertItemRec">
+        insert into item_rec(item_no,emp_no,date,flag,salary)
+        values
+            (#{itemNo},#{empNo},
+            #{date},#{flag},#{salary})
+    </insert>
+    <select id="selectItemRec" resultType="com.halley.bean.ItemRec">
+        select * from Item_rec where item_no = #{1}
+        and  emp_no = #{0} and year (date) = #{2 }
+        and month (date) = #{3 }
+    </select>
+
+    <insert id="insertPayment">
+        insert into payment(emp_no,date ,salary,flag)
+        values
+            (#{empNo},#{date} ,#{salary},#{flag})
+    </insert>
+
+    <select id="selectPaymentByKey" resultType="com.halley.bean.Payment">
+        select * from payment where emp_no = #{0} and year(date) =#{1}
+        and month(date ) =#{2}
+    </select>
 </mapper>

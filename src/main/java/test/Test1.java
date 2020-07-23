@@ -1,15 +1,13 @@
 package test;
 
 
-import com.halley.bean.BaseForJson;
-import com.halley.bean.BaseIntegrate;
-import com.halley.bean.ImportForJson;
-import com.halley.bean.ProjectIntegrate;
+import com.halley.bean.*;
 import com.halley.mapper.AdminMapper;
 import com.halley.mapper.BaseMapper;
 import com.halley.mapper.ImportMapper;
 import com.halley.service.BaseManageService;
 import com.halley.service.ImportManageService;
+import com.halley.service.PaymentService;
 import com.halley.service.SalaryProjectService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -120,5 +119,18 @@ public class Test1 {
     public void test11() {
         List<ImportForJson> importForJson = importManageService.getImportForJson(new ImportForJson());
         System.out.println(importForJson);
+    }
+
+    @Autowired
+    PaymentService paymentService;
+    @Test
+    public void test12(){
+        String s = null;
+        String date ="2020-7";
+        String year = date.split("-")[0];
+        String month = date.split("-")[1];
+        System.out.println(year+month+"-1");
+
+        System.out.println(Date.valueOf(year+"-"+month+"-1"));
     }
 }

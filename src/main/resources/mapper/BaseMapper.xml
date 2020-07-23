@@ -52,11 +52,19 @@
         select base_name from base where base_no = #{baseNo} and flag = 0
     </select>
 
+    <select id="getBaseByBaseNo" resultType="com.halley.bean.Base">
+        select * from base where base_no = #{baseNo}
+    </select>
+
     <select id="getBaseNameByBaseNo1" resultType="java.lang.String">
         select base_name from base where base_no = #{baseNo} and flag = 1
     </select>
 
     <select id="getBaseNameByFlag" resultType="java.lang.String">
                 select base_name from base where flag = 1
+    </select>
+
+    <select id="getBaseRecByDeptNo" resultType="com.halley.bean.BaseRec">
+        select * from base_rec where dept_no = #{deptNo}
     </select>
 </mapper>
