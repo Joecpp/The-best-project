@@ -27,7 +27,7 @@
         <!--jstl版本号-->
         <jstl.version>1.2</jstl.version>
         <!--Json支持的版本-->
-        <json.version>2.5.3</json.version>
+        <json.version>2.12.6.1</json.version>
         <pro.outerDirectory>src/main/webapp</pro.outerDirectory>
     </properties>
     <dependencies>
